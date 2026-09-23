@@ -1,10 +1,5 @@
 import io
 import contextlib
-
-
-# ============================================================================== 
-# LEGACY STORE SYSTEM  —  messy but working.   DO NOT EDIT THIS SECTION.
-# ============================================================================== 
 PRODUCTS = [
     ("Laptop", 1200.0, "electronics"),
     ("Headphones", 200.0, "electronics"),
@@ -79,11 +74,7 @@ def legacy_main():
     for o in ORDERS:
         grand = grand + calc(o)
     print("GRAND TOTAL (all orders): " + str(round(grand, 2)))
-
-
-# ============================================================================== 
-# BEHAVIOUR LOCK  —  DO NOT EDIT.
-# ============================================================================== 
+    
 def capture(fn):
     """Run fn() and return everything it printed, as a string."""
     buf = io.StringIO()
@@ -93,11 +84,6 @@ def capture(fn):
 
 
 GOLDEN_OUTPUT = capture(legacy_main)
-
-
-# ============================================================================== 
-# YOUR REFACTORED SOLUTION
-# ============================================================================== 
 TAX_RATE = 0.07
 FOOD = "food"
 DISCOUNT_LIMIT = 100
@@ -277,11 +263,6 @@ def refactored_main():
         print(order.receipt())
         grand += order.total()
     print("GRAND TOTAL (all orders): " + str(round(grand, 2)))
-
-
-# ============================================================================== 
-# SELF-TEST  —  DO NOT EDIT.
-# ============================================================================== 
 def _check():
     try:
         your_output = capture(refactored_main)
